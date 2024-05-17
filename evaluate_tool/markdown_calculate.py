@@ -1,19 +1,16 @@
 import os  
 from Levenshtein import distance  
-from nltk.translate.bleu_score import sentence_bleu  
+from nltk.translate.bleu_score import corpus_bleu  
 from nltk.tokenize import word_tokenize  
-import json
-# 假设我们有一个简单的BLEU评分函数，这里仅用于示例  
-# 注意：这不是标准的BLEU评分，因为它没有多个参考译文  
+import json 
 def simple_bleu_score(candidate, reference):  
-    # 假设我们按空格分词，并且没有考虑标点符号等  
     candidate_tokens = word_tokenize(candidate)  
-    reference_tokens = word_tokenize(reference)  
-    return sentence_bleu([reference_tokens], candidate_tokens, weights=(0.25, 0.25, 0.25, 0.25))  
+    reference_tokens = word_tokenize(reference) 
+    return corpus_bleu([[reference_tokens]], [candidate_tokens])  
   
 # 定义目录路径  
-dir_a = 'D:\code\\testcode\QA\commit_qa\dataset_validator\script\grou truth\教材\普通教材\普通教材-magicpdf'  # 替换为你的A目录路径 ,竞品
-dir_b = 'D:\code\\testcode\QA\commit_qa\dataset_validator\script\grou truth\教材\普通教材\普通教材-标准'  # 替换为你的B目录路径, groud_truth
+dir_a = 'D:\code\\testcode\QA\commit_qa\dataset_validator\script\grou truth\学术文献\学术文献_magicpdf\dataset'  # 替换为你的A目录路径 ,竞品
+dir_b = 'D:\code\\testcode\QA\commit_qa\dataset_validator\script\grou truth\学术文献\学术文件-标准\\anotations'  # 替换为你的B目录路径, groud_truth
   
 # 初始化列表来存储编辑距离和BLEU分数  
 edit_distances = []  
@@ -33,10 +30,9 @@ for filename in os.listdir(dir_a):
                 content_b = file_b.read()  
                 filenames.append(filename)
                 # 计算编辑距离  
-                edit_dist = distance(content_a, content_b)  
+                edit_dist = distance(content_a, content_b) / max(len(content_a), len(content_b))
                 edit_distances.append(edit_dist)  
-  
-                # 计算BLEU分数（简化版）  
+                #计算BLUE分数
                 bleu_score = simple_bleu_score(content_a, content_b)  
                 bleu_scores.append(bleu_score)  
         else:  
@@ -52,3 +48,4 @@ fw.write(json.dumps(edit_distances, ensure_ascii=False) + "\n")
 fw.write(json.dumps(bleu_scores, ensure_ascii=False) + "\n")
 fw.write(f"Average Levenshtein Distance: {average_edit_distance}" + "\n")
 fw.write(f"Average BLEU Score: {average_bleu_score}" + "\n")
+fw.close()
