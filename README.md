@@ -1,2 +1,2 @@
-# pdf-extract-bench
-###   PDF-benchmark是面向大模型数据场景的PDF文档理解能力评测集，数据总量共1069个PDF文件，46916页PDF，包含教材、学术文献、PPT转PDF，试卷等11类数据集。可为大模型数据开发者和工具开发者提供PDF文档理解能力参考。
+# Introduction
+   PDF-benchmark is a PDF document understanding ability evaluation set for large model data scenarios. The total data volume is 1069 PDF files and 46916 pages of PDF, including 11 types of data sets such as textbooks, academic documents, PPT to PDF, and test papers. It can provide a reference for PDF document understanding capabilities for large model data developers and tool developers.
