@@ -42,7 +42,7 @@ for filename in os.listdir(dir_a):
 average_edit_distance = sum(edit_distances) / len(edit_distances) if edit_distances else 0  
 average_bleu_score = sum(bleu_scores) / len(bleu_scores) if bleu_scores else 0  
 
-fw = open('score.txt', 'w+', encoding='utf-8')
+fw = open('badcase\score.txt', 'w+', encoding='utf-8')
 fw.write(json.dumps(filenames, ensure_ascii=False) + "\n")
 fw.write(json.dumps(edit_distances, ensure_ascii=False) + "\n")
 fw.write(json.dumps(bleu_scores, ensure_ascii=False) + "\n")
