@@ -4,14 +4,16 @@
 # Statistics of PDF-benchmark
 
 
-# Metrics
-![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/dcf4bfda-efc2-4049-9a20-e781326f9c9d)
-
-
 # Results
 
 
 # Evaluation tools
+ Before using the tool, you need to match the md file name you converted with the pdf file name. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
+
+```
+cd evaluation
+python markdown_calculate.py --standard dir/annations --actual dir/marker --results dir/xx.txt
+```
 
 
 # Get Data
