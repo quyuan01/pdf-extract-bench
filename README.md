@@ -5,13 +5,13 @@
 
 
 # Metrics
-![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/28f8601f-e792-45db-b616-c4e562b31bcc)
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/dcf4bfda-efc2-4049-9a20-e781326f9c9d)
 
 
 # Results
 
 
-# Evaluations
+# Evaluation tools
 
 
 # Get Data
