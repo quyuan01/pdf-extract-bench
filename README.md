@@ -5,6 +5,7 @@
 
 
 # Metrics
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/28f8601f-e792-45db-b616-c4e562b31bcc)
 
 
 # Results
