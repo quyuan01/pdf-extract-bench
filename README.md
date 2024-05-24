@@ -11,9 +11,10 @@
  Before using the tool, you need to match the md file name you converted with the pdf file name. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
 
 ```
-cd evaluation
+cd evaluate_tool
 python markdown_calculate.py --standard dir/annations --actual dir/marker --results dir/xx.txt
 ```
 
 
 # Get Data
+Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
