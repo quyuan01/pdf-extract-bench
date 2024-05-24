@@ -12,7 +12,7 @@
 
 ```
 cd evaluate_tool
-python markdown_calculate.py --standard dir/annations --actual dir/marker --results dir/xx.txt
+python markdown_calculate.py --standard dir/annations --actual dir/actual_dir --results dir/xx.txt
 ```
 
 
