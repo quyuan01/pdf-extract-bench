@@ -4,7 +4,11 @@
 # Statistics of PDF-benchmark
 Referring to the corpus distribution of the LLM, the distribution(by page) of different categories of our benchmark is as follows：
 
-![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/b6281579-585c-43da-9d88-b25f226b39d1) ![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/8eb9d5cf-690a-4481-8f2a-afd67f30d705)
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/b6281579-585c-43da-9d88-b25f226b39d1)
+
+Referring to the corpus distribution of the LLM, the distribution(by PDF file) of different categories of our benchmark is as follows：
+
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/c186b7cc-2956-4a9d-a54c-1f7aca3aaafe)
 
 
 
