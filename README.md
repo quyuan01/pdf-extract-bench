@@ -26,7 +26,7 @@ The PDF-benchmark datasets were collected from various sources, including arXiv,
 - The special exam paper subset consists of Watermark, text in Graphics; 
 - The altas subset included PDF files contain a large number of images on a single page.
 - The notes subset consists of students' handwritten notes in nine subjects, including 48 PDF files.
-- The courseware contains PDF files converted from PPT, including 87 PDF files;
+- The courseware contains PDF files converted from PPT, including 87 PDF files, and its background is colorful;
 
 # Results
 
