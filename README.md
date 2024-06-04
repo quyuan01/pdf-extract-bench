@@ -9,7 +9,11 @@ Referring to the corpus distribution of the LLM, the distribution(by page) of di
 Referring to the corpus distribution of the LLM, the distribution(by PDF file) of different categories of our benchmark is as follows：
 
 ![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/c186b7cc-2956-4a9d-a54c-1f7aca3aaafe)
+The layout is distributed as follows:
 
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/2aa4c6bd-bd31-48e2-8c02-6e03b50d63a9)
+
+According to the difficulty of OCR recognition, the distribution is as follows：
 
 
 # Results
