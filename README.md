@@ -17,13 +17,16 @@
 # Dataset Source
 The PDF-benchmark datasets were collected from various sources, including arXiv, SCIHUB, textbooks, test papers, historical documents, etc. The source and composition of different subsets are shown below.
 
-The scientific article subset includes articles obtained by searching with the keywords "Optical Character Recognition" and "Document Layout Analysis" on arXiv. PDF files were then downloaded and converted to images.
-The textbook subset contains 2,080 scanned document images from textbooks for three grades (elementary, middle, and high school) and nine subjects (Chinese, Math, English, Physics, Chemistry, Biology, History, Geography, and Politics).
-The test paper subset consists of 2,000 examination papers covering the same nine subjects as the textbook subset.
-The magazine subset includes 1,000 Chinese and English magazines in PDF format, respectively. The Chinese magazines were sourced from five publishers: Global Science, The Mystery, Youth Digest, China National Geographic, and The Reader. The English magazines were sourced from five American publishers: The New Yorker, New Scientist, Scientific American, The Economist, and Time USA.
-The newspaper subset contains 500 PDF document images from the Chinese People's Daily and the Wall Street Journal.
-The note subset consists of students' handwritten notes in nine subjects, including 500 scanned pages.
-The book subset contains 500 photographed images, which were acquired from 50 books with 10 pages each. Each book has a distinct layout, resulting in considerable diversity in this subset.
+- The scientific article subset includes articles from arXiv and SCIHUB, including single-column, double-column, charts, formulas and other complex layouts;
+- The ordinary textbook subset contains 458 PDF files which is from http://www.nsmath.cn/jszl and its colors are black and white, and it contains a rich formula;
+- The colorful textbook subset contains 57 PDF files, it includes colorful graphics; 
+- The research report subset contains 71 PDF files, it contains rich table information;
+- The ordinary books subset contains 37 PDF files, it contains en and zh language; 
+- The test paper subset consists of 2,000 examination papers covering the same nine subjects as the textbook subset.
+- The magazine subset includes 1,000 Chinese and English magazines in PDF format, respectively. The Chinese magazines were sourced from five publishers: Global Science, The Mystery, Youth Digest, China National Geographic, and The Reader. The English magazines were sourced from five American publishers: The New Yorker, New Scientist, Scientific American, The Economist, and Time USA.
+- The newspaper subset contains 500 PDF document images from the Chinese People's Daily and the Wall Street Journal.
+- The note subset consists of students' handwritten notes in nine subjects, including 500 scanned pages.
+- The book subset contains 500 photographed images, which were acquired from 50 books with 10 pages each. Each book has a distinct layout, resulting in considerable diversity in this subset.
 
 
 # Results
