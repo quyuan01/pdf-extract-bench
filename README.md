@@ -1,5 +1,5 @@
 # Introduction
-   PDF-benchmark is a PDF document understanding ability evaluation set for large model data scenarios. The total data volume is 1069 PDF files and 46916 pages of PDF, including 11 types of data sets such as textbooks, academic documents, PPT to PDF, and test papers. It can provide a reference for PDF document understanding capabilities for large model data developers and tool developers.
+   PDF-benchmark is an end-to-end evaluation set of PDF document comprehension capabilities for large model data scenarios. It is human-readable and provides technical difficulty labels for PDF document comprehension at the file granularity. The total data volume is 1,069 PDF files and 46,916 pages of PDF, including 11 types of data sets such as textbooks, academic documents, PPT to PDF, and test papers. It can provide a reference for PDF document comprehension capability evaluation for large model data developers and tool developers.
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
 
 # Statistics of PDF-benchmark
