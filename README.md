@@ -13,8 +13,11 @@ The layout is distributed as follows:
 
 ![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/2aa4c6bd-bd31-48e2-8c02-6e03b50d63a9)
 
-According to the difficulty of OCR recognition, the distribution is as follows：
+The difficulty of OCR recognition is distributed as follows：
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6b2f42df-fe1a-45f8-a0ae-8d89ae19d740)
 
+The layout analysis is distributed as follows：
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/faa35a3a-0f68-4ed8-bd5c-fe8105a20125)
 
 # Results
 
