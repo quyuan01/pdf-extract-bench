@@ -18,7 +18,7 @@
 The PDF-benchmark datasets were collected from various sources, including arXiv, SCIHUB, textbooks, test papers, historical documents, etc. The proportion of different corpora is shown in lamma and internlm 20b. The source and composition of different subsets are shown below.
 
 - The scientific article subset includes articles from arXiv and SCIHUB, including single-column, double-column, charts, formulas and other complex layouts;
-- The ordinary textbook subset contains 458 PDF files which is from http://www.nsmath.cn/jszl and its colors are black and white, and it contains a rich formula;
+- The ordinary textbook subset contains 458 PDF files which is from http://www.nsmath.cn/jszl and its colors are black and white, and it contains rich formula;
 - The colorful textbook subset contains 57 PDF files, it includes English, mathematics, Chinese (including pinyin) subjects. It includes colorful graphics information; 
 - The research report subset contains 71 PDF files, it contains rich table information;
 - The ordinary books subset contains 37 PDF files, and the layout is mainly black and white;
