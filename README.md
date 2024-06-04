@@ -5,7 +5,7 @@
 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/00f73084-2562-427b-afb4-4b54749dd60c" width="350" height="200" alt="The distribution of pages">  
 
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/38c5da27-3278-4ac2-9f90-f0dd974f37b5" width="350" height="200" alt="The distribution of PDF file">  
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/437fd66b-d2a0-47cb-9baf-58fbafa4591d" width="350" height="200" alt="The distribution of PDF file">  
 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/2aa4c6bd-bd31-48e2-8c02-6e03b50d63a9" width="350" height="200" alt="The distribution of Text Extraction Difficulty">  
 
