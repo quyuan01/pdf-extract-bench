@@ -15,7 +15,7 @@
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/faa35a3a-0f68-4ed8-bd5c-fe8105a20125" width="350" height="200" alt="The distribution of layout">  
 
 # Dataset Source
-The PDF-benchmark datasets were collected from various sources, including arXiv, SCIHUB, textbooks, test papers, historical documents, etc. The source and composition of different subsets are shown below.
+The PDF-benchmark datasets were collected from various sources, including arXiv, SCIHUB, textbooks, test papers, historical documents, etc. The proportion of different corpora is shown in lamma and internlm 20b. The source and composition of different subsets are shown below.
 
 - The scientific article subset includes articles from arXiv and SCIHUB, including single-column, double-column, charts, formulas and other complex layouts;
 - The ordinary textbook subset contains 458 PDF files which is from http://www.nsmath.cn/jszl and its colors are black and white, and it contains a rich formula;
