@@ -22,12 +22,11 @@ The PDF-benchmark datasets were collected from various sources, including arXiv,
 - The colorful textbook subset contains 57 PDF files, it includes English, mathematics, Chinese (including pinyin) subjects. It includes colorful graphics information; 
 - The research report subset contains 71 PDF files, it contains rich table information;
 - The ordinary books subset contains 37 PDF files, and the layout is mainly black and white;
-- The ordinary exam paper subset consists of 
-- The magazine subset includes 1,000 Chinese and English magazines in PDF format, respectively. The Chinese magazines were sourced from five publishers: Global Science, The Mystery, Youth Digest, China National Geographic, and The Reader. The English magazines were sourced from five American publishers: The New Yorker, New Scientist, Scientific American, The Economist, and Time USA.
-- The newspaper subset contains 500 PDF document images from the Chinese People's Daily and the Wall Street Journal.
-- The note subset consists of students' handwritten notes in nine subjects, including 500 scanned pages.
-- The book subset contains 500 photographed images, which were acquired from 50 books with 10 pages each. Each book has a distinct layout, resulting in considerable diversity in this subset.
-
+- The ordinary exam paper subset consists of computer science, mathematics, Chinese, it covers primary school, junior high school, high school, industry question bank;
+- The special exam paper subset consists of Watermark, text in Graphics; 
+- The altas subset included PDF files contain a large number of images on a single page.
+- The notes subset consists of students' handwritten notes in nine subjects, including 48 PDF files.
+- The courseware contains PDF files converted from PPT, including 87 PDF files;
 
 # Results
 
