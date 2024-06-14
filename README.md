@@ -1,7 +1,34 @@
 # Introduction
-   PDF-benchmark is a PDF document understanding ability evaluation set for large model data scenarios. The total data volume is 1069 PDF files and 46916 pages of PDF, including 11 types of data sets such as textbooks, academic documents, PPT to PDF, and test papers. It can provide a reference for PDF document understanding capabilities for large model data developers and tool developers.
+   MPB (Magic-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
+   
+   Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
+# Dataset Source
+The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, textbooks, examination papers, historical documents, etc., with reference to the corpus proportion of lamma and internlm 20b. The sources and composition of different subsets are as follows:
 
-# Statistics of PDF-benchmark
+| Category                  | Tag                 | File Count | Total Pages | Description                                                                                    |
+|---------------------------|---------------------|-------------|--------------|------------------------------------------------------------------------------------------------|
+| Research Reports           | research_report     | 70          | 875          | Contains rich tabular information with single-column, double-column, and complex layouts.       |
+| Ordinary Textbooks        | ordinary_textbook   | 40          | 388          | Single-column layout, black and white, includes a wealth of formulas.                         |
+| Academic Literature        | academic_literature | 183         | 3323         | Data sourced from arXiv and Sci-Hub, includes single-column, double-column, charts, formulas, and other complex formats. |
+| Atlas                     | atlas               | 3           | 269          | Characterized by a single page containing large area images.                                 |
+| Courseware (PPT to PDF)   | courseware         | 7           | 383          | Includes subjects such as Biology, Chinese, English, and Physics.                              |
+| Special Exam Papers       | special_exam_paper  | 3           | 80           | Includes watermarks, text within graphics, primary school Pinyin, and math problems.         |
+| Historical Documents       | historical_documents | 1           | 3            | Layout is vertical, reading order is from right to left.                                     |
+| Notes                      | notes               | 3           | 293          | Includes handwritten notes from three junior high school students.                            |
+| Ordinary Exam Papers       | ordinary_exam_paper | 27          | 372          | Includes subjects such as Computer Science, Mathematics, Chinese, covering primary school, junior high school, high school, and industry question banks, mainly in black and white. |
+| Colorful Textbooks        | colorful_textbook   | 3           | 144          | Includes subjects such as English, Mathematics, Chinese (including Pinyin), containing colorful graphic information. |
+| Ordinary Books             | ordinary_books      | 10          | 2280         | Single-column layout, black and white background books.                                       |
+
+# Statistics of MPB
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/43176747-4f03-42ad-b48b-a4448fc0dc0e" width="350" height="200" alt="The distribution of pages">  
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/fb06f784-f22f-4897-9b7e-00cf7f622e38" width="350" height="200" alt="The distribution of PDF file"> 
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/d233a4ca-c54a-41f3-be96-8b80b1b0b740" width="350" height="200" alt="The distribution of md language">  
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
+
+
 
 
 # Results
@@ -18,3 +45,6 @@ python markdown_calculate.py --standard dir/annations --actual dir/actual_dir --
 
 # Get Data
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
+
+# License
+The PDF-benchmark dataset should be used and distributed under the Creative Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License(https://creativecommons.org/licenses/by-nc-nd/4.0/)for non-commercial research purposes
