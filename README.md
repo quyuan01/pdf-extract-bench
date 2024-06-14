@@ -1,32 +1,34 @@
 # Introduction
-   PDF-benchmark is an end-to-end evaluation set of PDF document comprehension capabilities for large model data scenarios. It is human-readable and provides technical difficulty labels for PDF document comprehension at the file granularity. The total data volume is 1,069 PDF files and 46,916 pages of PDF, including 11 types of data sets such as textbooks, academic documents, PPT to PDF, and test papers. It can provide a reference for PDF document comprehension capability evaluation for large model data developers and tool developers.
+   MPB (Magic-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
-
-# Statistics of PDF-benchmark
-
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/afe90ec7-9277-4303-b177-e619be749913" width="350" height="200" alt="The distribution of pages">  
-
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/069c12e8-97fb-4961-8a5d-9d5e93b62c8f" width="350" height="200" alt="The distribution of PDF file">  
-
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/2aa4c6bd-bd31-48e2-8c02-6e03b50d63a9" width="350" height="200" alt="The distribution of Text Extraction Difficulty">  
-
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/cbf7c4d8-1bfb-4541-9deb-52f485f86f35" width="350" height="200" alt="The distribution of OCR Extraction Difficulty">  
-
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/faa35a3a-0f68-4ed8-bd5c-fe8105a20125" width="350" height="200" alt="The distribution of layout">  
-
 # Dataset Source
-The PDF-benchmark datasets were collected from various sources, including arXiv, SCIHUB, textbooks, test papers, historical documents, etc. The proportion of different corpora is shown in lamma and internlm 20b. The source and composition of different subsets are shown below.
+The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, textbooks, examination papers, historical documents, etc., with reference to the corpus proportion of lamma and internlm 20b. The sources and composition of different subsets are as follows:
 
-- The scientific article subset includes articles from arXiv and SCIHUB, including single-column, double-column, charts, formulas and other complex layouts;
-- The ordinary textbook subset contains 458 PDF files which is from http://www.nsmath.cn/jszl and its colors are black and white, and it contains rich formula;
-- The colorful textbook subset contains 57 PDF files, it includes English, mathematics, Chinese (including pinyin) subjects. It includes colorful graphics information; 
-- The research report subset contains 71 PDF files, it contains rich table information;
-- The ordinary books subset contains 37 PDF files, and the layout is mainly black and white;
-- The ordinary exam paper subset consists of computer science, mathematics, Chinese, it covers primary school, junior high school, high school, industry question bank;
-- The special exam paper subset consists of Watermark, text in Graphics; 
-- The altas subset included PDF files contain a large number of images on a single page.
-- The notes subset consists of students' handwritten notes in nine subjects, including 48 PDF files.
-- The courseware contains PDF files converted from PPT, including 87 PDF files, and its background is colorful;
+| Category                  | Tag                 | File Count | Total Pages | Description                                                                                    |
+|---------------------------|---------------------|-------------|--------------|------------------------------------------------------------------------------------------------|
+| Research Reports           | research_report     | 70          | 875          | Contains rich tabular information with single-column, double-column, and complex layouts.       |
+| Ordinary Textbooks        | ordinary_textbook   | 40          | 388          | Single-column layout, black and white, includes a wealth of formulas.                         |
+| Academic Literature        | academic_literature | 183         | 3323         | Data sourced from arXiv and Sci-Hub, includes single-column, double-column, charts, formulas, and other complex formats. |
+| Atlas                     | atlas               | 3           | 269          | Characterized by a single page containing large area images.                                 |
+| Courseware (PPT to PDF)   | courseware         | 7           | 383          | Includes subjects such as Biology, Chinese, English, and Physics.                              |
+| Special Exam Papers       | special_exam_paper  | 3           | 80           | Includes watermarks, text within graphics, primary school Pinyin, and math problems.         |
+| Historical Documents       | historical_documents | 1           | 3            | Layout is vertical, reading order is from right to left.                                     |
+| Notes                      | notes               | 3           | 293          | Includes handwritten notes from three junior high school students.                            |
+| Ordinary Exam Papers       | ordinary_exam_paper | 27          | 372          | Includes subjects such as Computer Science, Mathematics, Chinese, covering primary school, junior high school, high school, and industry question banks, mainly in black and white. |
+| Colorful Textbooks        | colorful_textbook   | 3           | 144          | Includes subjects such as English, Mathematics, Chinese (including Pinyin), containing colorful graphic information. |
+| Ordinary Books             | ordinary_books      | 10          | 2280         | Single-column layout, black and white background books.                                       |
+
+# Statistics of MPB
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/43176747-4f03-42ad-b48b-a4448fc0dc0e" width="350" height="200" alt="The distribution of pages">  
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/fb06f784-f22f-4897-9b7e-00cf7f622e38" width="350" height="200" alt="The distribution of PDF file"> 
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/d233a4ca-c54a-41f3-be96-8b80b1b0b740" width="350" height="200" alt="The distribution of md language">  
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
+
+
+
 
 # Results
 
