@@ -8,6 +8,19 @@ import scoring
 import argparse
 
 parser = argparse.ArgumentParser(description="get directory")
+parser.add_argument('--types', 
+    nargs='+',
+    choices=["academic_literature", "atlas", "courseware", "colorful_textbok", "historical_documents", "notes", "ordinary_books", "ordinary_exam_paper", "ordinary_textbook", "research_report", "special_exam_paper"], 
+    help='Choose one or more types',
+    default=["academic_literature", "atlas", "courseware", "colorful_textbok", "historical_documents", "notes", "ordinary_books", "ordinary_exam_paper", "ordinary_textbook", "research_report", "special_exam_paper"]
+)
+
+parser.add_argument(
+    "--tool_type",
+    type=str,
+    required=True,
+    help="tool type",
+)
 parser.add_argument(
     "--download_dir",
     type=str,
@@ -15,13 +28,13 @@ parser.add_argument(
     help="input download dir",
 )
 parser.add_argument(
-    "--results ",
+    "--results",
     type=str,
     required=True,
     help="results path(end with .json)",
 )
 args = parser.parse_args()
-
+fw = open(args.results, 'w+', encoding='utf-8')
 # 初始化列表来存储编辑距离和BLEU分数  
 class Scoring:
     def __init__(self):
@@ -31,7 +44,7 @@ class Scoring:
         self.filenames = []
         self.score_dict = {}
         self.anntion_cnt = 0
-        self.fw = open(args.results, 'w+', encoding='utf-8')
+
     def simple_bleu_score(self, candidate, reference):  
         candidate_tokens = word_tokenize(candidate)  
         reference_tokens = word_tokenize(reference) 
@@ -72,42 +85,42 @@ class Scoring:
                         score = scoring.score_text(content_b, content_a)
                         sim_scores.append(score)
                         self.sim_scores.append(score)
-                        class_dict[filename] = {"edit_dist": edit_dist, "bleu_score": bleu_score, "score": score}
-                        self.score_dict[filename] = {"edit_dist": edit_dist, "bleu_score": bleu_score, "score": score}
+                        class_dict[filename] = {"edit_dist": edit_dist, "bleu_score": bleu_score, "sim_score": score}
+                        self.score_dict[filename] = {"edit_dist": edit_dist, "bleu_score": bleu_score, "sim_score": score}
                 else:  
                     print(f"File {filename} not found in actual directory.")  
         # 计算每类平均值
         class_average_edit_distance = sum(edit_distances) / len(edit_distances) if edit_distances else 0  
         class_average_bleu_score = sum(bleu_scores) / len(bleu_scores) if bleu_scores else 0  
         class_average_sim_score = sum(sim_scores) / len(sim_scores) if sim_scores else 0
-        self.fw.write(json.dumps(class_dict, ensure_ascii=False) + "\n")
+        fw.write(json.dumps(class_dict, ensure_ascii=False) + "\n")
         ratio = len(class_dict)/total_file
-        self.fw.write(f"{tool_type} extract ratio:  {ratio}" + "\n")
-        self.fw.write(f"{tool_type} Average Levenshtein Distance: {class_average_edit_distance}" + "\n")
-        self.fw.write(f"{tool_type} Average BLEU Score: {class_average_bleu_score}" + "\n")
-        self.fw.write(f"{tool_type} Average Marker Score: {class_average_sim_score}" + "\n")
+        fw.write(f"{tool_type} extract ratio:  {ratio}" + "\n")
+        fw.write(f"{tool_type} Average Levenshtein Distance: {class_average_edit_distance}" + "\n")
+        fw.write(f"{tool_type} Average BLEU Score: {class_average_bleu_score}" + "\n")
+        fw.write(f"{tool_type} Average Sim Score: {class_average_sim_score}" + "\n")
 
         print (f"{tool_type} extract ratio: {ratio}")
         print (f"{tool_type} Average Levenshtein Distance: {class_average_edit_distance}")
         print (f"{tool_type} Average BLEU Score: {class_average_bleu_score}")
-        print (f"{tool_type} Average Marker Score: {class_average_sim_score}")
-
-        # 计算整体平均值
+        print (f"{tool_type} Average Sim Score: {class_average_sim_score}")
+        return self.score_dict
+    def summary_scores(self):
+         # 计算整体平均值
         average_edit_distance = sum(self.edit_distances) / len(self.edit_distances) if self.edit_distances else 0  
         average_bleu_score = sum(self.bleu_scores) / len(self.bleu_scores) if self.bleu_scores else 0  
         average_sim_score = sum(self.sim_scores) / len(self.sim_scores) if self.sim_scores else 0
         #self.fw.write(json.dumps(self.score_dict, ensure_ascii=False) + "\n")
-        self.fw.write(f"all extract cnt: {len(self.score_dict)/self.anntion_cnt}" + "\n")
-        self.fw.write(f"all Average Levenshtein Distance: {average_edit_distance}" + "\n")
-        self.fw.write(f"all Average BLEU Score: {average_bleu_score}" + "\n")
-        self.fw.write(f"all Average Marker Score: {average_sim_score}" + "\n") 
-        print ("extract ratio: ", len(self.score_dict)/self.anntion_cnt)
-        print (f"Average Levenshtein Distance: {average_edit_distance}")
-        print (f"Average BLEU Score: {average_bleu_score}")
-        print (f"Average Marker Score: {average_sim_score}")
-        return self.score_dict
+        fw.write(f"Overall extract cnt: {len(self.score_dict)/self.anntion_cnt}" + "\n")
+        fw.write(f"Overall Average Levenshtein Distance: {average_edit_distance}" + "\n")
+        fw.write(f"Overall Average BLEU Score: {average_bleu_score}" + "\n")
+        fw.write(f"Overall Average Marker Score: {average_sim_score}" + "\n") 
+        print ("Overall extract ratio: ", len(self.score_dict)/self.anntion_cnt)
+        print (f"Overall Average Levenshtein Distance: {average_edit_distance}")
+        print (f"Overall Average BLEU Score: {average_bleu_score}")
+        print (f"Overall Average Marker Score: {average_sim_score}")
+        fw.close()
 
- 
     def calculate_similarity_total(self, tool_type, file_types, download_dir):
         for file_type in file_types:
             annotion = r"%s\%s\annotations\cleaned" % (download_dir, file_type)
@@ -115,8 +128,16 @@ class Scoring:
             self.calculate_similarity(annotion, actual, file_type)
 
 if __name__ == "__main__":  
-  file_types = ["academic_literature", "atlas", "courseware", "colorful_textbok", "historical_documents", "notes", "ordinary_books", "ordinary_exam_paper", "ordinary_textbook", "research_report", "special_exam_paper"]
+  file_types = list()
   tool_type =args.tool_type
   download_dir = args.download_dir
+  if args.types:
+    print("Selected types:", args.types)
+    for type_ in args.types:
+        file_types.append(type_)
+  else:
+      print("No types selected")
+  print(f"Type {file_types} is selected. Executing related operations...")
   score = Scoring()
   score.calculate_similarity_total(tool_type, file_types, download_dir)
+  score.summary_scores()

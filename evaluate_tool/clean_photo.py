@@ -5,7 +5,7 @@ import os
 import argparse
 parser = argparse.ArgumentParser(description="get tool type")
 parser.add_argument(
-    "--tool_type ",
+    "--tool_type",
     type=str,
     required=True,
     help="input tool type",
