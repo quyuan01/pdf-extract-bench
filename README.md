@@ -52,11 +52,18 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
 # Evaluation tools
-Before using the tool, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
+Before using the tool，some cleaning is necessary, such as removing images from the text and converting HTML-formatted tables into standard Markdown format tables.
+The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
 
 ```
 cd evaluate_tool
-python markdown_calculate.py --standard dir/annations --actual dir/actual_dir --results dir/xx.txt
+python clean_photo.py --tool_type annotations --download_dir datasets/annotations
+```
+Then, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files.
+
+```
+cd evaluate_tool
+python markdown_calculate.py --tool_type tools --download_dir datasets/tools
 ```
 
 
