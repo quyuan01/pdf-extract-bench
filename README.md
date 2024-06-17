@@ -52,7 +52,7 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
 # Evaluation tools
- Before using the tool, you need to match the md file name you converted with the pdf file name. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
+Before using the tool, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
 
 ```
 cd evaluate_tool
