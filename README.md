@@ -41,7 +41,7 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 | ocrmath (Commercial Tool) | 92%                 | 0.56                 | 0.38             | 0.39             |
 | mathpix (Commercial Tool) | 100%                | 0.83                 | 0.08             | 0.91             |
 
-### Extraction Effects of 11 Types
+### Extraction scores of 11 Types
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/473223d0-fee9-4158-8b79-52c09066d8e1" width="350" height="200" alt="The distribution of sim_socre">  
 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/eb537cf8-f8d0-4815-b1c4-0494d72aa9ae" width="350" height="200" alt="The distribution of edit distance">  
