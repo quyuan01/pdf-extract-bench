@@ -32,19 +32,42 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 
 
 # Results
+### Overall Average Score
+| Solution               | Extraction Rate (↑) | Similarity Score (↑) | Edit Distance (↓) | BLEU Score (↑) |
+|------------------------|----------------------|----------------------|------------------|------------------|
+| nogout (Open-Source Tool)                 | 100%                 | 0.35                 | 0.57             | 0.33             |
+| marker (Open-Source Tool)                 | 99.4%                | 0.47                 | 0.42             | 0.386            |
+| doc2x (Commercial Tool)| 99%                  | 0.67                 | 0.189            | 0.611            |
+| ocrmath (Commercial Tool) | 92%                 | 0.56                 | 0.38             | 0.39             |
+| **mathpix (Commercial Tool)** | **100%**                | **0.83**                 | **0.08**             | **0.91**         |
 
+### Scores of 11 Types
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/473223d0-fee9-4158-8b79-52c09066d8e1" width="350" height="200" alt="The distribution of sim_socre">  
 
-# Evaluation tools
- Before using the tool, you need to match the md file name you converted with the pdf file name. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/eb537cf8-f8d0-4815-b1c4-0494d72aa9ae" width="350" height="200" alt="The distribution of edit distance">  
 
-```
-cd evaluate_tool
-python markdown_calculate.py --standard dir/annations --actual dir/actual_dir --results dir/xx.txt
-```
-
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f358d113-72fd-4cea-9f68-d46f01249219" width="350" height="200" alt="The distribution of bleu">  
 
 # Get Data
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
+
+# Evaluation tools
+Before using the tool，some cleaning is necessary, such as removing images from the text and converting HTML-formatted tables into standard Markdown format tables.
+The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
+
+notes: Annotations should also be cleaned.
+
+```
+cd evaluate_tool
+python clean_photo.py --tool_type annotations --download_dir datasets/annotations
+```
+Then, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files.
+
+```
+cd evaluate_tool
+python markdown_calculate.py --tool_type tools --download_dir datasets/tools
+```
+
 
 # License
 The PDF-benchmark dataset should be used and distributed under the Creative Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License(https://creativecommons.org/licenses/by-nc-nd/4.0/)for non-commercial research purposes
