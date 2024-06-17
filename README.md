@@ -1,4 +1,4 @@
-![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/db5dad92-b696-43b0-a5c1-08179d054183)# Introduction
+# Introduction
    MPB (Magic-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
    
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
