@@ -54,6 +54,7 @@ Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/qu
 # Evaluation tools
 Before using the tool，some cleaning is necessary, such as removing images from the text and converting HTML-formatted tables into standard Markdown format tables.
 The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
+notes: Annotations should also be cleaned.
 
 ```
 cd evaluate_tool
