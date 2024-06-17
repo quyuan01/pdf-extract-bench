@@ -68,6 +68,5 @@ cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools
 ```
 
-
-# License
-The PDF-benchmark dataset should be used and distributed under the Creative Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License(https://creativecommons.org/licenses/by-nc-nd/4.0/)for non-commercial research purposes
+# Contact
+For any questions about the dataset, please contact the authors by sending an email to quyuan(quyuan@pjlab.org.cn).
