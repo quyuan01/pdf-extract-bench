@@ -1,4 +1,4 @@
-# Introduction
+![image](https://github.com/quyuan01/pdf-extract-bench/assets/102640628/db5dad92-b696-43b0-a5c1-08179d054183)# Introduction
    MPB (Magic-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
    
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
@@ -32,7 +32,24 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 
 
 # Results
+### Overall Average Score
+| Solution               | Extraction Rate (↑) | Similarity Score (↑) | Edit Distance (↓) | BLEU Score (↑) |
+|------------------------|----------------------|----------------------|------------------|------------------|
+| nogout                 | 100%                 | 0.35                 | 0.57             | 0.33             |
+| marker                 | 99.4%                | 0.47                 | 0.42             | 0.386            |
+| doc2x (Commercial Tool)| 99%                  | 0.67                 | 0.189            | 0.611            |
+| ocrmath (Commercial Tool) | 92%                 | 0.56                 | 0.38             | 0.39             |
+| mathpix (Commercial Tool) | 100%                | 0.83                 | 0.08             | 0.91             |
 
+### Extraction Effects of 11 Types
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/473223d0-fee9-4158-8b79-52c09066d8e1" width="350" height="200" alt="The distribution of sim_socre">  
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/eb537cf8-f8d0-4815-b1c4-0494d72aa9ae" width="350" height="200" alt="The distribution of edit distance">  
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f358d113-72fd-4cea-9f68-d46f01249219" width="350" height="200" alt="The distribution of bleu">  
+
+# Get Data
+Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
 # Evaluation tools
  Before using the tool, you need to match the md file name you converted with the pdf file name. --standard is the md file list in annotations, and --actual is the md file list extracted for your solution.
@@ -42,9 +59,6 @@ cd evaluate_tool
 python markdown_calculate.py --standard dir/annations --actual dir/actual_dir --results dir/xx.txt
 ```
 
-
-# Get Data
-Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
 # License
 The PDF-benchmark dataset should be used and distributed under the Creative Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License(https://creativecommons.org/licenses/by-nc-nd/4.0/)for non-commercial research purposes
