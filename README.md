@@ -68,8 +68,15 @@ notes: Annotations also should  be cleaned.
 Then, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files.
 ```
 cd evaluate_tool
-python markdown_calculate.py --tool_type tools --download_dir datasets/tools
+python markdown_calculate.py --tool_type tools --download_dir datasets/tools 
 ```
+- **step3**
+  
+If you wish to select one of the types for evaluation, please proceed with the --types, eg "academic_literature", all is defalut
 
+```
+cd evaluate_tool
+python markdown_calculate.py --tool_type tools --download_dir datasets/tools --types dataset_type
+```
 # Contact
 For any questions about the dataset, please contact the authors by wechat.
