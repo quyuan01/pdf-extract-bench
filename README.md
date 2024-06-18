@@ -69,4 +69,4 @@ python markdown_calculate.py --tool_type tools --download_dir datasets/tools
 ```
 
 # Contact
-For any questions about the dataset, please contact the authors by sending an email to quyuan(quyuan@pjlab.org.cn).
+For any questions about the dataset, please contact the authors by wechat.
