@@ -28,6 +28,8 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/d233a4ca-c54a-41f3-be96-8b80b1b0b740" width="350" height="200" alt="The distribution of md language">  
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
 
+# Metrics
+
 
 
 
@@ -51,18 +53,19 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 # Get Data
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
-# Evaluation tools
-Before using the tool，some cleaning is necessary, such as removing images from the text and converting HTML-formatted tables into standard Markdown format tables.
-The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
+# Usage
+- **step1**
 
-notes: Annotations should also be cleaned.
+After completing the download of the evaluation set, please execute the following command to complete the preliminary cleaning. The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." or "annotations" . The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
 
-```
-cd evaluate_tool
-python clean_photo.py --tool_type annotations --download_dir datasets/annotations
-```
+notes: Annotations also should  be cleaned.
+  ```
+  cd evaluate_tool
+  python clean_photo.py --tool_type annotations --download_dir datasets/annotations
+  ```
+- **step2**
+  
 Then, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files.
-
 ```
 cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools
