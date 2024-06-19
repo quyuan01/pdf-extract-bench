@@ -30,9 +30,6 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 
 # Metrics
 ## sim score
-- **Text Chunking**
-
-Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as `C(T, chunk_len)`. Chunks that, after stripping whitespace, have a length less than or equal to `CHUNK_MIN_CHARS` are excluded.
 
 - **Overlap Score**
 
@@ -40,10 +37,6 @@ For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, 
 
 $${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right]$$
 
-
-- **Scoring**
-
-The length modifier `length_modifier` and search distance `search_distance` are considered to determine the range of search within the set of reference text chunks `R` for each hypothesis text chunk `H_chunk`.
 
 - **Mean Score**
 
@@ -55,12 +48,9 @@ If `S` is empty, the mean score is 0.
 
 - **Final Score**
 
-The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(H, R)`:
+The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(T_H, T_R)`:
 
-$${Score}(H, R) = \text{Mean\\_score}$$
-The integrated function in the form of a mathematical formula is:
-
-$${scoretext}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
+$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
 Where:
 - `T_H` is the hypothesis text.
 - `T_R` is the reference text.
