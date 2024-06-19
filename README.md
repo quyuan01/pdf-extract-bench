@@ -82,27 +82,14 @@ Where:
 
 ## Blue
 
-The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. The formula is given by:
+The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. Bleu is calculated as follows:
 
-$$ \text{BLEU} = \sum_{n=1}^{N} \left( \text{w}_n \times p_n \right) \times \text{log} \left( \frac{c_n}{r_n} \right) $$
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5b85781e-31fa-4969-9f3b-921884c96856" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
-Where:
-- `N` is the maximum order of n-grams considered.
-- $\text{w}_n$ are weights for each n-gram precision, typically set to $\frac{1}{N}$ for all $n$.
-- $p_n$ is the precision of the n-grams, which is the ratio of the number of correct n-grams to the total number of n-grams in the candidate translation.
-- $c_n$ is the number of n-grams in the candidate translation that match the reference translation.
-- $r_n$ is the total number of n-grams in the candidate translation.
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/9c0693df-a87c-450a-8a10-15b49f40f9a0" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
-The smoothing function method1 is applied to avoid zero probabilities for n-grams not appearing in the candidate translation:
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f6d4900f-9616-48ff-afdc-1c04cc9bf318" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
-$$p_n = \frac{c_n + 1}{r_n + \delta(r_n)}$$
-
-Where:
-- $\delta(r_n)$ is a smoothing term that depends on $r_n$, often set to 1 or a small constant.
-
-The final BLEU score is the exponential of the sum of the weighted log probabilities:
-
-<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/be56ea46-dcd0-408a-8832-71bf87268265" width="300" height="70" alt="The distribution of PDF  Type"></center>  
 
 
 # Results
