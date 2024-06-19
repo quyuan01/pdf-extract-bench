@@ -69,9 +69,17 @@ between two strings  `a` and `b` is calculated as follows:
 Where:
 - `i` and `j` are the indices being compared in strings `a` and `b`, respectively.
 - $\text{lev}_{a,b}(i', j')$ denotes the Levenshtein distance between the prefixes of `a` and `b` up to indices`i'` and` j' `.
-- $\text{cost}(a_i, b_j)$ is the cost associated with transforming the character $a_i$ into$b_j$, which is typically:
-  - 0 if $a_i$ is the same as $b_j$ (no operation needed),
-  - 1 if $a_i$ is different from $b_j$ (an insertion, deletion, or substitution is needed).
+
+
+The normalized edit distance between two strings `a` and `b` is calculated using the following formula:
+
+$$\text{editdistance} = \frac{\text{lev}(a, b)}{\max(\text{len}(a), \text{len}(b))}$$
+
+Where:
+- ${lev}(a, b)$ represents the Levenshtein distance between strings `a` and `b`.
+- $\text{len}(a)$ and $\text{len}(b)$represent the lengths of strings `a` and `b`, respectively.
+- $\max(\text{len}(a), \text{len}(b))$ finds the greater of the two lengths.
+
 ## Blue
 
 The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. The formula is given by:
