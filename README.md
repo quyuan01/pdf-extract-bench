@@ -44,7 +44,7 @@ The mean score `Mean_score` is calculated for the set of maximum scores `maxscor
 
 $$\text{Mean\\_score} = \text{mean}(maxscore)$$
 
-If `S` is empty, the mean score is 0.
+If `maxscore` is empty, the mean score is 0.
 
 - **Final Score**
 
