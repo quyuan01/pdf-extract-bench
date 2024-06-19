@@ -61,7 +61,7 @@ If `maxscore` is empty, the mean score is 0.
 
 The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(T_H, T_R)`:
 
-$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
+$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[F(H, R_{\text{chunk}}) \right]\right)$$
 Where:
 - $T_H$ is the hypothesis text.
 - $T_R$ is the reference text.
