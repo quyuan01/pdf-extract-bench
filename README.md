@@ -29,7 +29,18 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
 
 # Metrics
-## sim score
+
+## Extraction Rate 
+
+The Extraction Rate (ER) is the ratio of the number of Markdown (.md) files successfully generated from PDF files to the total number of PDF files. The formula is as follows:
+
+$$ \text{ER} = \frac{\text{hypothesiscnt}}{\text{referencecnt}} $$
+
+Where:
+- hypothesiscnt: The count of Markdown files that have been successfully created.
+- referencecnt: The overall count of PDF files that were subjected to the conversion process.
+
+## Similarity Score
 
 - **Overlap Score**
 
