@@ -38,7 +38,8 @@ Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as 
 
 For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
 
-$$ \text{max\\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right] $$
+$${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right]$$
+
 
 - **Scoring**
 
@@ -56,10 +57,10 @@ If `S` is empty, the mean score is 0.
 
 The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(H, R)`:
 
-$$\text{Score}(H, R) = \text{Mean\\_score}$$
+$${Score}(H, R) = \text{Mean\\_score}$$
 The integrated function in the form of a mathematical formula is:
 
-$$ \text{score\_text}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right) $$
+$${scoretext}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
 Where:
 - `T_H` is the hypothesis text.
 - `T_R` is the reference text.
@@ -69,24 +70,11 @@ Where:
 - `Mean` is the function that calculates the average value.
 ## Edit Distance
 
-The Levenshtein distance $\text{lev}_{a,b}(i, j)$between two strings  `a` and `b` is calculated as follows:
+The Levenshtein distance ${lev}_{a,b}(i, j)$
+between two strings  `a` and `b` is calculated as follows:
 
-If $\min(i, j) = 0$, then:
-$$\text{lev}_{a,b}(i, j) = 
-  \begin{cases} 
-    \text{lev}_{a,b}(i - 1, j) + 1 & \text{if } i > 0 \\
-    \text{lev}_{a,b}(i, j - 1) + 1 & \text{if } j > 0 
-  \end{cases}
-$$
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6336202a-27d5-438a-b712-e01da6b14755" width="500" height="100" alt="The distribution of PDF  Type">  
 
-Otherwise:
-$$\text{lev}_{a,b}(i, j) = \min 
-  \begin{cases} 
-    \text{lev}_{a,b}(i - 1, j) + 1 \\
-    \text{lev}_{a,b}(i, j - 1) + 1 \\
-    \text{lev}_{a,b}(i - 1, j - 1) + \text{cost}(a_i, b_j) 
-  \end{cases}
-$$
 
 Where:
 - `i` and `j` are the indices being compared in strings `a` and `b`, respectively.
