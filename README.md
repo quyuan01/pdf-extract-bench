@@ -61,12 +61,12 @@ If `maxscore` is empty, the mean score is 0.
 
 The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(T_H, T_R)`:
 
-$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
+$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
 Where:
 - $T_H$ is the hypothesis text.
 - $T_R$ is the reference text.
 - $C(T, chunk_len)$ is the function that segments text `T` into chunks of length `chunk_len`.
-- $F(H_chunk, R_chunk)$ is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
+- $F(H\\_chunk, R\\_chunk)$ is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
 - $max$ indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
 - $Mean$ is the function that calculates the average value.
 ## Edit Distance
