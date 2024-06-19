@@ -38,7 +38,7 @@ Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as 
 
 For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
 
-$$\text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right]$$
+$$ \text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right] $$
 
 - **Scoring**
 
@@ -72,7 +72,7 @@ Where:
 The Levenshtein distance $\text{lev}_{a,b}(i, j)$between two strings  `a` and `b` is calculated as follows:
 
 If $\min(i, j) = 0$, then:
-$$ \text{lev}_{a,b}(i, j) = 
+$$\text{lev}_{a,b}(i, j) = 
   \begin{cases} 
     \text{lev}_{a,b}(i - 1, j) + 1 & \text{if } i > 0 \\
     \text{lev}_{a,b}(i, j - 1) + 1 & \text{if } j > 0 
@@ -80,7 +80,7 @@ $$ \text{lev}_{a,b}(i, j) =
 $$
 
 Otherwise:
-$$ \text{lev}_{a,b}(i, j) = \min 
+$$\text{lev}_{a,b}(i, j) = \min 
   \begin{cases} 
     \text{lev}_{a,b}(i - 1, j) + 1 \\
     \text{lev}_{a,b}(i, j - 1) + 1 \\
