@@ -40,9 +40,9 @@ $${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_
 
 - **Mean Score**
 
-The mean score `Mean_score` is calculated for the set of maximum scores `S` of all hypothesis text chunks:
+The mean score `Mean_score` is calculated for the set of maximum scores `maxscore` of all hypothesis text chunks:
 
-$$\text{Mean\\_score} = \text{mean}(S)$$
+$$\text{Mean\\_score} = \text{mean}(maxscore)$$
 
 If `S` is empty, the mean score is 0.
 
