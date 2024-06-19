@@ -80,7 +80,7 @@ Where:
 - $\{len}(a)$ and $\{len}(b)$ represent the lengths of strings `a` and `b`, respectively.
 - $\max(\text{len}(a), \text{len}(b))$ finds the greater of the two lengths.
 
-## Blue
+## Bleu
 
 The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. Bleu is calculated as follows:
 
