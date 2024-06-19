@@ -63,7 +63,7 @@ Where:
 The Levenshtein distance ${lev}_{a,b}(i, j)$
 between two strings  `a` and `b` is calculated as follows:
 
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6336202a-27d5-438a-b712-e01da6b14755" width="500" height="100" alt="The distribution of PDF  Type">  
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6336202a-27d5-438a-b712-e01da6b14755" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
 
 Where:
@@ -102,8 +102,7 @@ Where:
 
 The final BLEU score is the exponential of the sum of the weighted log probabilities:
 
-$$\text{BLEU}_{\text{final}} = \exp \left( \sum_{n=1}^{N} \text{w}_n \times \text{log} \left( p_n \right) \right)$$
-
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/be56ea46-dcd0-408a-8832-71bf87268265" width="300" height="70" alt="The distribution of PDF  Type"></center>  
 
 
 # Results
@@ -123,6 +122,10 @@ $$\text{BLEU}_{\text{final}} = \exp \left( \sum_{n=1}^{N} \text{w}_n \times \tex
 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f358d113-72fd-4cea-9f68-d46f01249219" width="350" height="200" alt="The distribution of bleu">  
 
+notes:
+- marker's test version is v0.2.8;
+- nogout's test version is v0.1.0 small;
+  
 # Get Data
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
@@ -152,4 +155,4 @@ cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools --types dataset_type
 ```
 # Contact
-For any questions about the dataset, please contact the authors by wechat.
+For any questions about the dataset, please contact the authors by wechat opendatalab_yunying.
