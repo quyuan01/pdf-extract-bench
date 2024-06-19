@@ -97,8 +97,9 @@ Where:
 - $c$ is the length of the candidate translation.
 - $r$ is the length of the reference translation.
 
-The final BLEU score is calculated using a logarithmic evaluation:
-<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f6d4900f-9616-48ff-afdc-1c04cc9bf318" width="500" height="100" alt="The distribution of PDF  Type"> </center>
+
+<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/4c1fe6f4-8a28-4763-aa01-77d475bcff9c" width="300" height="100" alt="The distribution of PDF  Type"> </center>
+
 
 
 
