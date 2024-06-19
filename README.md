@@ -77,7 +77,7 @@ $$\text{editdistance} = \frac{\text{lev}(a, b)}{\max(\text{len}(a), \text{len}(b
 
 Where:
 - ${lev}(a, b)$ represents the Levenshtein distance between strings `a` and `b`.
-- $\text{len}(a)$ and $\text{len}(b)$represent the lengths of strings `a` and `b`, respectively.
+- $\{len}(a)$ and $\{len}(b)$ represent the lengths of strings `a` and `b`, respectively.
 - $\max(\text{len}(a), \text{len}(b))$ finds the greater of the two lengths.
 
 ## Blue
