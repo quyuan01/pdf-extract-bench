@@ -38,7 +38,7 @@ Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as 
 
 For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
 
-$$ \text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right] $$
+$$ \text{max\\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right] $$
 
 - **Scoring**
 
@@ -48,7 +48,7 @@ The length modifier `length_modifier` and search distance `search_distance` are 
 
 The mean score `Mean_score` is calculated for the set of maximum scores `S` of all hypothesis text chunks:
 
-$\text{Mean\_score} = \text{mean}(S)$
+$$\text{Mean\\_score} = \text{mean}(S)$$
 
 If `S` is empty, the mean score is 0.
 
@@ -56,7 +56,7 @@ If `S` is empty, the mean score is 0.
 
 The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(H, R)`:
 
-$$ \text{Score}(H, R) = \text{Mean\_score} $$
+$$\text{Score}(H, R) = \text{Mean\\_score}$$
 The integrated function in the form of a mathematical formula is:
 
 $$ \text{score\_text}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right) $$
