@@ -87,7 +87,7 @@ Where:
 
 The smoothing function method1 is applied to avoid zero probabilities for n-grams not appearing in the candidate translation:
 
-$p_n = \frac{c_n + 1}{r_n + \delta(r_n)}$
+$$p_n = \frac{c_n + 1}{r_n + \delta(r_n)}$$
 
 Where:
 - $\delta(r_n)$ is a smoothing term that depends on $r_n$, often set to 1 or a small constant.
