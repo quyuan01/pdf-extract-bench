@@ -1,5 +1,5 @@
 # Introduction
-   MPB (Magic-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
+   MPB (Miner-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
    
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
 # Dataset Source
@@ -29,8 +29,52 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
 
 # Metrics
+## sim score
+### Text Chunking (文本分块)
 
+Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as `C(T, chunk_len)`. Chunks that, after stripping whitespace, have a length less than or equal to `CHUNK_MIN_CHARS` are excluded.
 
+### Overlap Score (重叠得分)
+
+For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
+
+$ \text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right] $
+
+### Scoring (得分计算)
+
+The length modifier `length_modifier` and search distance `search_distance` are considered to determine the range of search within the set of reference text chunks `R` for each hypothesis text chunk `H_chunk`.
+
+### Mean Score (平均得分)
+
+The mean score `Mean_score` is calculated for the set of maximum scores `S` of all hypothesis text chunks:
+
+\[ \text{Mean\_score} = \text{mean}(S) \]
+
+If `S` is empty, the mean score is 0.
+
+### Final Score (最终得分)
+
+The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(H, R)`:
+
+\[ \text{Score}(H, R) = \text{Mean\_score} \]
+
+The integrated function in the form of a mathematical formula is:
+
+\[ \text{score\_text}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right) \]
+
+Where:
+- `T_H` is the hypothesis text.
+- `T_R` is the reference text.
+- `C(T, chunk_len)` is the function that segments text `T` into chunks of length `chunk_len`.
+- `F(H_chunk, R_chunk)` is the function that calculates the similarity score between two text chunks.
+- `max` indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
+- `Mean` is the function that calculates the average value.
+## Edit Distance
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/c0a8448d-e3fe-4668-bbce-bad71873da1d" width="800" height="180" alt="The distribution of PDF  Type">  
+
+## Blue
+
+<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6e669a1d-131c-4cac-b825-ed78bc0d3e45" width="600" height="180" alt="The distribution of PDF  Type">  
 
 
 # Results
