@@ -17,7 +17,7 @@ def overlap_score(hypothesis_chunks, reference_chunks):
     if len(reference_chunks) > 0:
         length_modifier = len(hypothesis_chunks) / len(reference_chunks)
     else:
-        length_modifier = 1
+        length_modifier = 0
     search_distance = max(len(reference_chunks) // 5, 10)
     chunk_scores = []
     for i, hyp_chunk in enumerate(hypothesis_chunks):

@@ -30,38 +30,36 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 
 # Metrics
 ## sim score
-### Text Chunking (文本分块)
+- **Text Chunking**
 
 Given a text `T`, it is segmented into chunks of length `chunk_len`, denoted as `C(T, chunk_len)`. Chunks that, after stripping whitespace, have a length less than or equal to `CHUNK_MIN_CHARS` are excluded.
 
-### Overlap Score (重叠得分)
+- **Overlap Score**
 
 For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
 
-$ \text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right] $
+$$\text{max\_score}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right]$$
 
-### Scoring (得分计算)
+- **Scoring**
 
 The length modifier `length_modifier` and search distance `search_distance` are considered to determine the range of search within the set of reference text chunks `R` for each hypothesis text chunk `H_chunk`.
 
-### Mean Score (平均得分)
+- **Mean Score**
 
 The mean score `Mean_score` is calculated for the set of maximum scores `S` of all hypothesis text chunks:
 
-\[ \text{Mean\_score} = \text{mean}(S) \]
+$\text{Mean\_score} = \text{mean}(S)$
 
 If `S` is empty, the mean score is 0.
 
-### Final Score (最终得分)
+- **Final Score**
 
 The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(H, R)`:
 
-\[ \text{Score}(H, R) = \text{Mean\_score} \]
-
+$$ \text{Score}(H, R) = \text{Mean\_score} $$
 The integrated function in the form of a mathematical formula is:
 
-\[ \text{score\_text}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right) \]
-
+$$ \text{score\_text}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right) $$
 Where:
 - `T_H` is the hypothesis text.
 - `T_R` is the reference text.
@@ -70,11 +68,62 @@ Where:
 - `max` indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
 - `Mean` is the function that calculates the average value.
 ## Edit Distance
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/c0a8448d-e3fe-4668-bbce-bad71873da1d" width="800" height="180" alt="The distribution of PDF  Type">  
 
+The Levenshtein distance $\text{lev}_{a,b}(i, j)$between two strings  `a` and `b` is calculated as follows:
+
+If $\min(i, j) = 0$, then:
+$$ \text{lev}_{a,b}(i, j) = 
+  \begin{cases} 
+    \text{lev}_{a,b}(i - 1, j) + 1 & \text{if } i > 0 \\
+    \text{lev}_{a,b}(i, j - 1) + 1 & \text{if } j > 0 
+  \end{cases}
+$$
+
+Otherwise:
+$$ \text{lev}_{a,b}(i, j) = \min 
+  \begin{cases} 
+    \text{lev}_{a,b}(i - 1, j) + 1 \\
+    \text{lev}_{a,b}(i, j - 1) + 1 \\
+    \text{lev}_{a,b}(i - 1, j - 1) + \text{cost}(a_i, b_j) 
+  \end{cases}
+$$
+
+Where:
+- `i` and `j` are the indices being compared in strings `a` and `b`, respectively.
+- $\text{lev}_{a,b}(i', j')$ denotes the Levenshtein distance between the prefixes of `a` and `b` up to indices`i'` and` j' `.
+- $\text{cost}(a_i, b_j)$ is the cost associated with transforming the character $a_i$ into$b_j$, which is typically:
+  - 0 if $a_i$ is the same as $b_j$ (no operation needed),
+  - 1 if $a_i$ is different from $b_j$ (an insertion, deletion, or substitution is needed).
 ## Blue
+The BLEU score is calculated based on the overlap between the machine-generated translation (candidate) and one or more reference translations. The formula for the BLEU score is:
 
-<img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6e669a1d-131c-4cac-b825-ed78bc0d3e45" width="600" height="180" alt="The distribution of PDF  Type">  
+$$\text{BLEU} = \sum_{n=1}^{N} \left( w_n \times p_n \right)$$
+
+Where:
+- $N$ is the maximum order of n-grams considered.
+- $w_n$ are weights for each n-gram precision, typically set to $\frac{1}{N}$ for all $n$.
+- $p_n$ is the precision of the n-grams, calculated as:
+$p_n = \frac{c_n}{r_n}$
+- $c_n$ is the number of n-grams in the candidate translation that match any n-grams in the reference translation(s).
+- $r_n$ is the total number of n-grams in the candidate translation.
+
+A brevity penalty is also applied to discourage overly short translations:
+
+$$\text{BP} = 
+  \begin{cases} 
+    1 & \text{if } c > r \\
+    e^{(1-c/r)} & \text{if } c \leq r
+  \end{cases}
+$$
+
+Where:
+- $c$ is the length of the candidate translation (number of n-grams).
+- $r$ is the length of the reference translation (number of n-grams).
+
+The final BLEU score, incorporating the brevity penalty, is:
+
+$$\text{BLEU}_{\text{final}} = \text{BP} \times \text{BLEU}$$
+
 
 
 # Results
