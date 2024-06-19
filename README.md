@@ -85,7 +85,8 @@ Where:
 The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. Bleu is calculated as follows:
 
 <center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5b85781e-31fa-4969-9f3b-921884c96856" width="500" height="100" alt="The distribution of PDF  Type"> </center>
-
+Where:
+- 
 <center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/9c0693df-a87c-450a-8a10-15b49f40f9a0" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
 <center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f6d4900f-9616-48ff-afdc-1c04cc9bf318" width="500" height="100" alt="The distribution of PDF  Type"> </center>
