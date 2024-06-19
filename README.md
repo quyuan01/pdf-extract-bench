@@ -63,16 +63,16 @@ The final score is the average alignment score between the set of hypothesis tex
 
 $${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
 Where:
-- `T_H` is the hypothesis text.
-- `T_R` is the reference text.
-- `C(T, chunk_len)` is the function that segments text `T` into chunks of length `chunk_len`.
-- `F(H_chunk, R_chunk)` is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
-- `max` indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
-- `Mean` is the function that calculates the average value.
+- $T_H$ is the hypothesis text.
+- $T_R$ is the reference text.
+- $C(T, chunk_len)$ is the function that segments text `T` into chunks of length `chunk_len`.
+- $F(H_chunk, R_chunk)$ is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
+- $max$ indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
+- $Mean$ is the function that calculates the average value.
 ## Edit Distance
 
 The Levenshtein distance ${lev}_{a,b}(i, j)$
-between two strings  `a` and `b` is calculated as follows:
+between two strings $a$ and $b$ is calculated as follows:
 
 <center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6336202a-27d5-438a-b712-e01da6b14755" width="500" height="100" alt="The distribution of PDF  Type"> </center>
 
