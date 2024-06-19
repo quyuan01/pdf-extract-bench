@@ -73,34 +73,28 @@ Where:
   - 0 if $a_i$ is the same as $b_j$ (no operation needed),
   - 1 if $a_i$ is different from $b_j$ (an insertion, deletion, or substitution is needed).
 ## Blue
-The BLEU score is calculated based on the overlap between the machine-generated translation (candidate) and one or more reference translations. The formula for the BLEU score is:
 
-$$\text{BLEU} = \sum_{n=1}^{N} \left( w_n \times p_n \right)$$
+The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. The formula is given by:
+
+$$ \text{BLEU} = \sum_{n=1}^{N} \left( \text{w}_n \times p_n \right) \times \text{log} \left( \frac{c_n}{r_n} \right) $$
 
 Where:
-- $N$ is the maximum order of n-grams considered.
-- $w_n$ are weights for each n-gram precision, typically set to $\frac{1}{N}$ for all $n$.
-- $p_n$ is the precision of the n-grams, calculated as:
-$p_n = \frac{c_n}{r_n}$
-- $c_n$ is the number of n-grams in the candidate translation that match any n-grams in the reference translation(s).
+- `N` is the maximum order of n-grams considered.
+- $\text{w}_n$ are weights for each n-gram precision, typically set to $\frac{1}{N}$ for all $n$.
+- $p_n$ is the precision of the n-grams, which is the ratio of the number of correct n-grams to the total number of n-grams in the candidate translation.
+- $c_n$ is the number of n-grams in the candidate translation that match the reference translation.
 - $r_n$ is the total number of n-grams in the candidate translation.
 
-A brevity penalty is also applied to discourage overly short translations:
+The smoothing function method1 is applied to avoid zero probabilities for n-grams not appearing in the candidate translation:
 
-$$\text{BP} = 
-  \begin{cases} 
-    1 & \text{if } c > r \\
-    e^{(1-c/r)} & \text{if } c \leq r
-  \end{cases}
-$$
+$p_n = \frac{c_n + 1}{r_n + \delta(r_n)}$
 
 Where:
-- $c$ is the length of the candidate translation (number of n-grams).
-- $r$ is the length of the reference translation (number of n-grams).
+- $\delta(r_n)$ is a smoothing term that depends on $r_n$, often set to 1 or a small constant.
 
-The final BLEU score, incorporating the brevity penalty, is:
+The final BLEU score is the exponential of the sum of the weighted log probabilities:
 
-$$\text{BLEU}_{\text{final}} = \text{BP} \times \text{BLEU}$$
+$$\text{BLEU}_{\text{final}} = \exp \left( \sum_{n=1}^{N} \text{w}_n \times \text{log} \left( p_n \right) \right)$$
 
 
 
