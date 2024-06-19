@@ -32,7 +32,7 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 
 ## Extraction Rate 
 
-The Extraction Rate (ER) is the ratio of the number of Markdown (.md) files successfully generated from PDF files to the total number of PDF files. The formula is as follows:
+The Extraction Rate (ER) is the ratio of the number of Markdown (.md) files successfully generated from PDF files to the total number of PDF files. 
 
 $$ \text{ER} = \frac{\text{hypothesiscnt}}{\text{referencecnt}} $$
 
