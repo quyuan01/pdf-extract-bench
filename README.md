@@ -130,7 +130,23 @@ Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/qu
 
 # Usage
 - **step1**
+  installtion
 
+  ```
+  python -m pip install -r requirements.txt
+  ```
+
+- **step2**
+
+  Download the evaluation set from OpenDataLab, and place it in the datasets/evaluation directory.
+  
+  ```
+  cd datasets
+  wget https://openxlab.org.cn/datasets/quyuan/PDF-bench/raw/main/evaluation.zip
+  unzip evaluation.zip
+  ```
+- **step3**
+  
 After completing the download of the evaluation set, please execute the following command to complete the preliminary cleaning. The term "tool_type" refers to the name of the tool that is to be evaluated, such as "nogout." or "annotations" . The term "download_dir" refers to the data folder that has been downloaded from OpenDataLab.
 
 notes: Annotations also should  be cleaned.
@@ -138,14 +154,14 @@ notes: Annotations also should  be cleaned.
   cd evaluate_tool
   python clean_photo.py --tool_type annotations --download_dir datasets/annotations
   ```
-- **step2**
+- **step4**
   
 Then, please place the Markdown files which produced by evaluated tool into the datasets/tools directory, please ensuring that the filenames match the names of the downloaded PDF files.
 ```
 cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools 
 ```
-- **step3**
+- **step5**
   
 If you wish to select one of the types for evaluation, please proceed with the --types, eg "academic_literature", all is defalut
 
