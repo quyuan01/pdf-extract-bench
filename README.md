@@ -82,7 +82,8 @@ To mitigate the impact of line breaks and spaces on the score, we calculate the 
 
 - **Reference:**
   
-[Binary codes capable of correcting deletions, insertions, and reversals.]
+[Levenshtein, V.I., et al.: Binary codes capable of correcting deletions, insertions,
+and reversals. In: Soviet physics doklady. vol. 10, pp. 707–710. Soviet Union (1966)]
 https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf
 
 ## BLEU
@@ -97,7 +98,9 @@ We calculate the sentence_bleu of two strings after tokenization with nltk, usin
 
 - **Reference:**
   
-[BLEU: a Method for Automatic Evaluation of Machine Translation]
+[Papineni, K., Roukos, S., Ward, T., Zhu, W.J.: Bleu: a method for automatic
+evaluation of machine translation. In: Proceedings of the 40th annual meeting of
+the Association for Computational Linguistics. pp. 311–318 (2002)]
 https://aclanthology.org/P02-1040.pdf 
 
 
