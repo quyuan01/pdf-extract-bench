@@ -72,27 +72,34 @@ Where:
 
 ## Edit Distance
 
-- Description: 
+- **Description:**
+
 It is a method for measuring the differences between two strings. It is defined as the minimum number of single-character editing operations required to transform one string into another. These editing operations include insertions, deletions, and substitutions of characters.
 
-- Usage: 
+- **Usage:**
+  
 To mitigate the impact of line breaks and spaces on the score, we calculate the edit distance between two strings after preprocessing.
 
-- Reference: 
+- **Reference:**
+  
 [Binary codes capable of correcting deletions, insertions, and reversals.]
 https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf
 
 ## BLEU
 
-- Description: 
+- **Description:**
+
 The BLEU score is a value that ranges from 0 to 1, with higher BLEU scores typically indicating better translation quality.
 
-- Usage: 
+- **Usage:**
+  
 We calculate the sentence_bleu of two strings after tokenization with nltk, using method1 as the smoothing_function.
 
-- Reference: 
+- **Reference:**
+  
 [BLEU: a Method for Automatic Evaluation of Machine Translation]
 https://aclanthology.org/P02-1040.pdf 
+
 
 # Results
 ### Overall Average Score
