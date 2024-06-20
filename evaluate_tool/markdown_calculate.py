@@ -123,8 +123,8 @@ class Scoring:
 
     def calculate_similarity_total(self, tool_type, file_types, download_dir):
         for file_type in file_types:
-            annotion = r"%s\%s\annotations\cleaned" % (download_dir, file_type)
-            actual = r"%s\%s\%s\cleaned" % (download_dir, file_type, tool_type)
+            annotion = os.path.join(download_dir, file_type, annotations, cleaned)
+            actual = os.path.join(download_dir, file_type, tool_type, cleaned)
             self.calculate_similarity(annotion, actual, file_type)
 
 if __name__ == "__main__":  

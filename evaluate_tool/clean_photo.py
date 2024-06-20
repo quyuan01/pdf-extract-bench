@@ -27,15 +27,7 @@ def clean_ocrmath_photo(content):
     pattern = re.compile(r'\\includegraphics\[.*?\]\{.*?\}', re.IGNORECASE)  
     cleaned_content = pattern.sub('', content)   
     return cleaned_content
-def clean_data(source_dir, tgt_dir):
-    for file in os.listdir(source_dir):  
-        if file.endswith(".md"):
-            print ("开始清理图片链接...")
-            input_file = os.path.join(source_dir, file)  
-            output_file = os.path.join(tgt_dir, 'cleaned_' + file)
-            clean_markdown_images(input_file, output_file)
 
-  
 def convert_html_table_to_md(html_table):  
     lines = html_table.strip().split('\n')  
     md_table = ''  
@@ -51,25 +43,7 @@ def convert_html_table_to_md(html_table):
                 md_table += '| ' + ' | '.join(cells) + ' |\n'  
         md_table = md_table.rstrip() + '\n'    
     return md_table  
-  
-def convert_htmltale_to_md(content):  
-    tables = re.findall(r'<table>(.*?)</table>', content, re.DOTALL)  
-    placeholders = []  
-    
-    for table in tables:  
-        placeholder = f"<!-- TABLE_PLACEHOLDER_{len(placeholders)} -->"  
-        content = content.replace(f"<table>{table}</table>", placeholder)  
-        try:
-            convert_table = htmltabletomd.convert_table(table)
-        except:
-            convert_table = table
-        placeholders.append((placeholder,convert_table)) 
-    new_content = content  
-    for placeholder, md_table in placeholders:  
-        new_content = new_content.replace(placeholder, md_table)  
-        # 写入文件  
-    return new_content
-
+ 
 def convert_latext_to_md(content):  
     tables = re.findall(r'\\begin\{tabular\}(.*?)\\end\{tabular\}', content, re.DOTALL)  
     placeholders = []  
@@ -90,25 +64,42 @@ def convert_latext_to_md(content):
         # 写入文件  
     return new_content
 
+ 
+def convert_htmltale_to_md(content):  
+    tables = re.findall(r'<table>(.*?)</table>', content, re.DOTALL)  
+    placeholders = []  
+    for table in tables:  
+        placeholder = f"<!-- TABLE_PLACEHOLDER_{len(placeholders)} -->"  
+        content = content.replace(f"<table>{table}</table>", placeholder)  
+        try:
+            convert_table = htmltabletomd.convert_table(table)
+        except:
+            convert_table = table
+        placeholders.append((placeholder,convert_table)) 
+    new_content = content  
+    for placeholder, md_table in placeholders:  
+        new_content = new_content.replace(placeholder, md_table)  
+        # 写入文件  
+    return new_content
+
 def clean_data(prod_type, download_dir):
     file_type = ["academic_literature", "atlas", "courseware", "colorful_textbok", "historical_documents", "notes", "ordinary_books", "ordinary_exam_paper", "ordinary_textbook", "research_report", "special_exam_paper"]
     for filetype in file_type:
-        tgt_dir = r"%s\%s\%s\cleaned" % (download_dir, filetype, prod_type) # 替换为你的目录路径
+        tgt_dir = os.path.join(download_dir, filetype, prod_type, "cleaned")
         if not os.path.exists(tgt_dir):  
             os.makedirs(tgt_dir) 
-        source_dir = r"%s\%s\%s" % (download_dir, filetype, prod_type) # 替换为你的目录路径
+        source_dir = os.path.join(download_dir, filetype, prod_type)
         filenames = os.listdir(source_dir)
         for filename in filenames:
             if filename.endswith('.md'):
                 input_file = os.path.join(source_dir, filename)
                 output_file = os.path.join(tgt_dir, "cleaned_" + filename)
-            
                 with open(input_file, 'r', encoding='utf-8') as fr:
                     content = fr.read()
-                    new_content = convert_latext_to_md(content)
-                    new_content = convert_htmltale_to_md(new_content)
+                    new_content = convert_htmltale_to_md(content)
                     new_content = clean_markdown_images(new_content)
                     new_content = clean_ocrmath_photo(new_content)
+                    new_content = convert_latext_to_md(new_content)
                     with open(output_file, 'w', encoding='utf-8') as fw:
                         fw.write(new_content)
 

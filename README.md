@@ -130,6 +130,7 @@ Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/qu
 
 # Usage
 - **step1**
+  
   installtion
 
   ```
@@ -141,9 +142,7 @@ Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/qu
   Download the evaluation set from OpenDataLab, and place it in the datasets/evaluation directory.
   
   ```
-  cd datasets
-  wget https://openxlab.org.cn/datasets/quyuan/PDF-bench/raw/main/evaluation.zip
-  unzip evaluation.zip
+  
   ```
 - **step3**
   
@@ -161,13 +160,6 @@ Then, please place the Markdown files which produced by evaluated tool into the 
 cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools 
 ```
-- **step5**
-  
-If you wish to select one of the types for evaluation, please proceed with the --types, eg "academic_literature", all is defalut
 
-```
-cd evaluate_tool
-python markdown_calculate.py --tool_type tools --download_dir datasets/tools --types dataset_type
-```
 # Contact
 For any questions about the dataset, please contact the authors by wechat opendatalab_yunying.
