@@ -1,6 +1,5 @@
 Levenshtein
 nltk
-math
 rapidfuzz
 statistics
 openxlab #安装opendatalab
