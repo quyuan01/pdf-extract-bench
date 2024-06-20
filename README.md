@@ -29,13 +29,24 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
 
 # Metrics
-## sim score
+
+## Extraction Rate 
+
+The Extraction Rate (ER) is the ratio of the number of Markdown (.md) files successfully generated from PDF files to the total number of PDF files. 
+
+$$ \text{ER} = \frac{\text{hypothesiscnt}}{\text{referencecnt}} $$
+
+Where:
+- hypothesiscnt: The count of Markdown files that have been successfully created.
+- referencecnt: The overall count of PDF files that were subjected to the conversion process.
+
+## Similarity Score
 
 - **Overlap Score**
 
-For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function `F(H_chunk, R_chunk)`, which returns a value between 0 and 1.
+For a set of hypothesis text chunks `H` and a set of reference text chunks `R`, the maximum similarity score between each hypothesis text chunk and the reference text chunks is calculated using the function $F(H_{\text{chunk}}, R_{\text{chunk}}$, which returns a value between 0 and 1.
 
-$${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H, R_{\text{chunk}}) \right]$$
+$${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right]$$
 
 
 - **Mean Score**
@@ -48,16 +59,17 @@ If `maxscore` is empty, the mean score is 0.
 
 - **Final Score**
 
-The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as `Score(T_H, T_R)`:
+The final score is the average alignment score between the set of hypothesis text chunks and the set of reference text chunks, denoted as $Score(T_H, T_R)$:
 
-$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[ F(C(T_H, chunk\_len), R_{\text{chunk}}) \right]\right)$$
+$${Score}(T_H, T_R) = \text{Mean}\left(\max_{R_{\text{chunk}} \in R} \left[F(H_{\text{chunk}}, R_{\text{chunk}}) \right]\right)$$
 Where:
-- `T_H` is the hypothesis text.
-- `T_R` is the reference text.
-- `C(T, chunk_len)` is the function that segments text `T` into chunks of length `chunk_len`.
-- `F(H_chunk, R_chunk)` is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
-- `max` indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
-- `Mean` is the function that calculates the average value.
+- $T_H$ is the hypothesis text.
+- $T_R$ is the reference text.
+- $C(T, chunk_len)$ is the function that segments text `T` into chunks of length `chunk_len`.
+- $H_{\text{chunk}}, R_{\text{chunk}}$ is the function that calculates the similarity score between two text chunks, which calculated by edit distance, score_cutoff is 30.
+- $max$ indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
+- $Mean$ is the function that calculates the average value.
+
 ## Edit Distance
 
 - Description: 
@@ -70,7 +82,7 @@ To mitigate the impact of line breaks and spaces on the score, we calculate the 
 [Binary codes capable of correcting deletions, insertions, and reversals.]
 https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf
 
-## Blue
+## BLEU
 
 - Description: 
 The BLEU score is a value that ranges from 0 to 1, with higher BLEU scores typically indicating better translation quality.
