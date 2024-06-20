@@ -60,50 +60,27 @@ Where:
 - `Mean` is the function that calculates the average value.
 ## Edit Distance
 
-The Levenshtein distance ${lev}_{a,b}(i, j)$
-between two strings  `a` and `b` is calculated as follows:
+- Description: 
+It is a method for measuring the differences between two strings. It is defined as the minimum number of single-character editing operations required to transform one string into another. These editing operations include insertions, deletions, and substitutions of characters.
 
-<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/6336202a-27d5-438a-b712-e01da6b14755" width="500" height="100" alt="The distribution of PDF  Type"> </center>
+- Usage: 
+To mitigate the impact of line breaks and spaces on the score, we calculate the edit distance between two strings after preprocessing.
 
-
-Where:
-- `i` and `j` are the indices being compared in strings `a` and `b`, respectively.
-- $\text{lev}_{a,b}(i', j')$ denotes the Levenshtein distance between the prefixes of `a` and `b` up to indices`i'` and` j' `.
-
-
-The normalized edit distance between two strings `a` and `b` is calculated using the following formula:
-
-$$\text{editdistance} = \frac{\text{lev}(a, b)}{\max(\text{len}(a), \text{len}(b))}$$
-
-Where:
-- ${lev}(a, b)$ represents the Levenshtein distance between strings `a` and `b`.
-- $\text{len}(a)$ and $\text{len}(b)$represent the lengths of strings `a` and `b`, respectively.
-- $\max(\text{len}(a), \text{len}(b))$ finds the greater of the two lengths.
+- Reference: 
+[Binary codes capable of correcting deletions, insertions, and reversals.]
+https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf
 
 ## Blue
 
-The BLEU score is calculated using the `sentence_bleu` method with smoothing function method1. The formula is given by:
+- Description: 
+The BLEU score is a value that ranges from 0 to 1, with higher BLEU scores typically indicating better translation quality.
 
-$$ \text{BLEU} = \sum_{n=1}^{N} \left( \text{w}_n \times p_n \right) \times \text{log} \left( \frac{c_n}{r_n} \right) $$
+- Usage: 
+We calculate the sentence_bleu of two strings after tokenization with nltk, using method1 as the smoothing_function.
 
-Where:
-- `N` is the maximum order of n-grams considered.
-- $\text{w}_n$ are weights for each n-gram precision, typically set to $\frac{1}{N}$ for all $n$.
-- $p_n$ is the precision of the n-grams, which is the ratio of the number of correct n-grams to the total number of n-grams in the candidate translation.
-- $c_n$ is the number of n-grams in the candidate translation that match the reference translation.
-- $r_n$ is the total number of n-grams in the candidate translation.
-
-The smoothing function method1 is applied to avoid zero probabilities for n-grams not appearing in the candidate translation:
-
-$$p_n = \frac{c_n + 1}{r_n + \delta(r_n)}$$
-
-Where:
-- $\delta(r_n)$ is a smoothing term that depends on $r_n$, often set to 1 or a small constant.
-
-The final BLEU score is the exponential of the sum of the weighted log probabilities:
-
-<center><img style="margin: 0 auto;" src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/be56ea46-dcd0-408a-8832-71bf87268265" width="300" height="70" alt="The distribution of PDF  Type"></center>  
-
+- Reference: 
+[BLEU: a Method for Automatic Evaluation of Machine Translation]
+https://aclanthology.org/P02-1040.pdf 
 
 # Results
 ### Overall Average Score
