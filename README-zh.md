@@ -135,7 +135,7 @@ https://aclanthology.org/P02-1040.pdf
 
 5. **步骤5**
 
-  将由评估工具生成的Markdown文件放入datasets/xxtype/xxtool_type目录中，请确保xxtype与文件名与下载的PDF文件名相匹配。比如nogout的academic_literature结果，请放到datasets/academic_literature/nogout目录中。
+  将由评估工具生成的Markdown文件放入datasets/xxtype/xxtools目录中，请确保xxtype与文件名与下载的PDF文件名相匹配。比如nogout的academic_literature结果，请放到datasets/academic_literature/nogout目录中。
 
 6. **步骤6**
    

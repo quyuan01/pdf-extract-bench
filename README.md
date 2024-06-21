@@ -167,7 +167,7 @@ Datasets can be downloaded from [OpenDataLab](https://opendatalab.com/OpenDataLa
 
 - **step5**
 
-  Place the Markdown files which produced by evaluated tool into the datasets/xxtools directory, please ensuring that the filenames match the names of the downloaded PDF files.
+  Place the Markdown files which produced by evaluated tool into the datasets/xxtype/xxtools directory, please ensuring that the filenames match the names of the downloaded PDF files.
 
 - **step6**
   
