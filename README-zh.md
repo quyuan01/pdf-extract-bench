@@ -1,7 +1,6 @@
-# 介绍
+# 简介
 MPB（Miner-PDF-Benchmark）是一套为大规模模型数据场景设计的端到端PDF文档理解评估套件。它确保了文件粒度上的人类可读性，并提供了PDF分类标签。该数据集总共包含350个PDF文件和8410页PDF，包括书籍、教材、学术文献、PPT转PDF、试卷等11种类型的数据集。它为大规模模型数据的开发者和工具开发者提供了PDF文档理解能力的评估参考。
 
-注意：PDF-benchmark数据集只能用于非商业研究目的。
 
 # 数据集来源
 MPB数据集来源于多种渠道，包括arXiv、Sci-Hub、教科书、试卷、历史文献等，参考了lamma和internlm 20b的语料库比例。不同子集的来源和组成如下：
@@ -98,7 +97,7 @@ https://aclanthology.org/P02-1040.pdf
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/f358d113-72fd-4cea-9f68-d46f01249219" width="350" height="200" alt="The distribution of bleu">  
 
 # 获取数据
-数据集可以从opendatalab下载：链接
+数据集可以从[OpenDataLab](https://opendatalab.com/OpenDataLab/Miner-PDF-Benchmark/tree/main)下载；
 
 # 使用方法
 1. **步骤1**  
@@ -118,22 +117,37 @@ https://aclanthology.org/P02-1040.pdf
 
 3. **步骤3**  
    
-  从OpenDataLab下载评估集，并将其放置在`datasets`目录中。
-  
+  请从[OpenDataLab](https://opendatalab.com/OpenDataLab/Miner-PDF-Benchmark/tree/main)下载评估集，并将其放置在`datasets`目录中。
+  若需通过命令行下载，请申请下载通过后，将[ak, sk](https://sso.openxlab.org.cn/usercenter?lang=zh-CN)填到download_dataset.py执行以下命令：
+
   ```
-  
+  cd datasets
+  python download_dataset.py
   ```
-4. **步骤4**
-   
-  完成评估集的下载后，请执行以下命令以完成初步清洗, "tool_type"是指要评估工具的名称，例如"nogout"或"annotations"。"download_dir"是指从OpenDataLab下载的数据文件夹。  
+
+4. **步骤4**  
+  
+  清洗annotations目录数据的图片，并将其放到datasets/annotations/clean目录下
   ```
   cd evaluate_tool
-  python clean_photo.py --tool_type annotations --download_dir datasets
+  python clean_photo.py --tool_type annotations --download_dir datasets/
   ```
 
 5. **步骤5**
+
+  将由评估工具生成的Markdown文件放入datasets/xxtype/xxtool_type目录中，请确保xxtype与文件名与下载的PDF文件名相匹配。比如nogout的academic_literature结果，请放到datasets/academic_literature/nogout目录中。
+
+6. **步骤6**
    
-  然后，请将评估工具生成的Markdown文件放入datasets/xx 目录, 和annotaitions同级目录中，请确保文件名与下载的PDF文件名相匹配。
+  完成评估集的下载后，请执行以下命令以完成初步清洗, "tool_type"是指要评估工具的名称，例如"nogout"。"download_dir"是指从OpenDataLab下载的数据文件夹。  
+  ```
+  cd evaluate_tool
+  python clean_photo.py --tool_type xxtool_type --download_dir datasets/
+  ```
+
+7. **步骤7**
+   
+  执行以下命令以计算得分。
   ```
   cd evaluate_tool
   python markdown_calculate.py --tool_type tools --download_dir datasets/xxx
