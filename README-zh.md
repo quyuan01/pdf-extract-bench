@@ -37,15 +37,15 @@ $$ \text{ER} = \frac{\text{hypothesiscnt}}{\text{referencecnt}} $$
 
 ## 相似度得分
 
-### 重叠得分
-对于一组假设文本块 `H` 和一组参考文本块 `R`，使用函数 \( F(H_{\text{chunk}}, R_{\text{chunk}}) \) 计算每个假设文本块与参考文本块之间的最大相似度得分，该函数返回0到1之间的值。
+### 相似得分
+对于一组假设文本块 `H` 和一组参考文本块 `R`，使用函数 $F(H_{\text{chunk}}, R_{\text{chunk}})$ 计算每个假设文本块与参考文本块之间的最大相似度得分，该函数返回0到1之间的值。
 
-$$ \text{maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right] $$
+$${maxscore}(H_{\text{chunk}}, R) = \max_{R_{\text{chunk}} \in R} \left[ F(H_{\text{chunk}}, R_{\text{chunk}}) \right]$$
 
 ### 平均得分
 对于所有假设文本块的最大得分集合 `maxscore`，计算平均得分 $ \text{Mean\_score} $：
 
-$ \text{Mean\_score} = \text{mean}(maxscore) $
+$$\text{Mean\\_score} = \text{mean}(maxscore)$$
 
 ### 最终得分
 最终得分是假设文本块集合与参考文本块集合之间的平均对齐得分，表示为 $ \text{Score}(T_H, T_R) $：

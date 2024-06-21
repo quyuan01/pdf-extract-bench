@@ -1,10 +1,10 @@
 English | [简体中文](README-zh.md)
 
-# Introduction
+## Introduction
    MPB (Miner-PDF-Benchmark) is an end-to-end PDF document comprehension evaluation suite designed for large-scale model data scenarios. It ensures human readability at the file granularity and provides PDF categorization tags. The total dataset comprises 350 PDF files and 8410 pages of PDFs, including 11 types of datasets such as books, textbooks, academic literature, PPT to PDF conversions, and examination papers. It serves as a reference for the evaluation of PDF document comprehension capabilities for developers of large-scale model data and tool developers.
    
    Note: The PDF-benchmark dataset can only be used for non-commercial research purposes. 
-# Dataset Source
+## Dataset Source
 The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, textbooks, examination papers, historical documents, etc., with reference to the corpus proportion of lamma and internlm 20b. The sources and composition of different subsets are as follows:
 
 | Category                  | Tag                 | File Count | Total Pages | Description                                                                                    |
@@ -21,7 +21,7 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 | Colorful Textbooks        | colorful_textbook   | 3           | 144          | Includes subjects such as English, Mathematics, Chinese (including Pinyin), containing colorful graphic information. |
 | Ordinary Books             | ordinary_books      | 10          | 2280         | Single-column layout, black and white background books.                                       |
 
-# Statistics of MPB
+## Statistics of MPB
 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/43176747-4f03-42ad-b48b-a4448fc0dc0e" width="350" height="200" alt="The distribution of pages">  
 
@@ -30,9 +30,9 @@ The MPB dataset is sourced from a variety of origins, including arXiv, Sci-Hub, 
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/d233a4ca-c54a-41f3-be96-8b80b1b0b740" width="350" height="200" alt="The distribution of md language">  
 <img src="https://github.com/quyuan01/pdf-extract-bench/assets/102640628/5ff056a7-6094-420b-8a93-a31585da9451" width="350" height="200" alt="The distribution of PDF  Type">  
 
-# Metrics
+## Metrics
 
-## Extraction Rate 
+### Extraction Rate 
 
 The Extraction Rate (ER) is the ratio of the number of Markdown (.md) files successfully generated from PDF files to the total number of PDF files. 
 
@@ -42,7 +42,7 @@ Where:
 - hypothesiscnt: The count of Markdown files that have been successfully created.
 - referencecnt: The overall count of PDF files that were subjected to the conversion process.
 
-## Similarity Score
+### Similarity Score
 
 - **Overlap Score**
 
@@ -72,7 +72,7 @@ Where:
 - $max$ indicates finding the most similar chunk in the set of reference text chunks `R` for each hypothesis text chunk.
 - $Mean$ is the function that calculates the average value.
 
-## Edit Distance
+### Edit Distance
 
 - **Description:**
 
@@ -88,7 +88,7 @@ To mitigate the impact of line breaks and spaces on the score, we calculate the 
 and reversals. In: Soviet physics doklady. vol. 10, pp. 707–710. Soviet Union (1966)]
 https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf
 
-## BLEU
+### BLEU
 
 - **Description:**
 
@@ -106,7 +106,7 @@ the Association for Computational Linguistics. pp. 311–318 (2002)]
 https://aclanthology.org/P02-1040.pdf 
 
 
-# Results
+## Results
 ### Overall Average Score
 | Solution               | Extraction Rate (↑) | Similarity Score (↑) | Edit Distance (↓) | BLEU Score (↑) |
 |------------------------|----------------------|----------------------|------------------|------------------|
@@ -127,10 +127,10 @@ notes:
 - marker's test version is v0.2.8;
 - nogout's test version is v0.1.0 small;
   
-# Get Data
+## Get Data
 Datasets can be downloaded from opendatalab: https://openxlab.org.cn/datasets/quyuan/PDF-bench/tree/main
 
-# Usage
+## Usage
 - **step1**
   
   Clone the project into your environment.
@@ -170,5 +170,5 @@ cd evaluate_tool
 python markdown_calculate.py --tool_type tools --download_dir datasets/tools 
 ```
 
-# Contact
+## Contact
 For any questions about the dataset, please contact the authors by wechat opendatalab_yunying.
